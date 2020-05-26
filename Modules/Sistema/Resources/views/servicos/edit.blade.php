@@ -1,29 +1,37 @@
 @extends('sistema::layouts.main')
 
-@section('title', 'Serviços - Cadastrar')
+@section('title', 'Serviços - Alterar')
 
 @section('header')
     <div class="content-header">
         <div class="header-section">
             <h1>
-                <i class="fa fa-cog"></i>Serviços - Cadastrar<br><small>Realize o cadastro de algum serviço no sistema.</small>
+                <i class="fa fa-cog"></i>Serviços - Alterar<br><small>Realize a alteração do serviço.</small>
             </h1>
         </div>
     </div>
+
+    <ul class="breadcrumb breadcrumb-top">
+        <li><a href="{{ route('sistema.servicos.index') }}">Serviços</a></li>
+        <li>Alterar</li>
+    </ul>
 @endsection
 
 @section('content')
     <div class="block">
         <div class="row">
             <div class="col-sm-12">
-                <form action="{{ route('sistema.servicos.store') }}" method="post" class="form-horizontal form-bordered">
+                <form action="{{ route('sistema.servicos.update') }}" method="post" class="form-horizontal form-bordered">
+                    @method('PUT')
                     @csrf
 
+                    <input type="hidden" name="id_servico" class="form-control" value="{{ old('id_servico') ?? '' }}" required>
+                    
                     <div class="form-group">
                         <div class="col-lg-offset-3 col-md-offset-3 col-lg-6 col-md-6">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-cog"></i></span>
-                                <input type="text" id="nome_servico" name="nome_servico" class="form-control" placeholder="Nome do serviço" value="{{ old('nome_servico') ?? '' }}" required>
+                                <input type="text" name="nome_servico" class="form-control" placeholder="Nome do serviço" value="{{ old('nome_servico') ?? '' }}" required>
                             </div>
                             @error('nome_servico')
                                 <div class="help-block"><span class="text-danger">{{ $message }}</span></div>
@@ -35,7 +43,7 @@
                         <div class="col-lg-offset-3 col-md-offset-3 col-lg-6 col-md-6">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-bookmark-o"></i></span>
-                                <input type="text" id="label_servico" name="label_servico" class="form-control" placeholder="Label do serviço" value="{{ old('label_servico') ?? '' }}" required>
+                                <input type="text" name="label_servico" class="form-control" placeholder="Label do serviço" value="{{ old('label_servico') ?? '' }}" required>
                             </div>
                             @error('label_servico')
                                 <div class="help-block"><span class="text-danger">{{ $message }}</span></div>
@@ -45,6 +53,7 @@
 
                     <div class="form-group form-actions">
                         <div class="col-lg-12 text-center">
+                            <button class="btn btn-sm btn-default" onclick="window.history.back()">Voltar</button>
                             <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Cadastrar</button>
                         </div>
                     </div>

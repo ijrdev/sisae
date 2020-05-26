@@ -725,3 +725,8 @@ var App = function() {
 
 /* Initialize app when page loads */
 $(function(){ App.init(); });
+
+$(document).ready(function(){
+    // Serviços.
+    // $("#nome_servico").mask("");
+});

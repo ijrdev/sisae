@@ -25,7 +25,6 @@
         @yield('links')
 
         <link href="{{ url(mix('css/sistema/main.css')) }}" rel="stylesheet">
-{{--        <link id="theme-link" rel="stylesheet" href="{{ asset('ProUi/css/themes/modern.css') }}">--}}
         <link href="{{ asset('ProUi/css/themes.css') }}" rel="stylesheet">
     </head>
 
@@ -89,7 +88,7 @@
                                             <a href="{{ route('sistema.servicos.index') }}" {{ Route::current()->getName() == 'sistema.servicos.index' ? "class=active" : '' }}>Todos os serviços</a>
                                         </li>
                                         <li>
-                                            <a href="{{ route('sistema.servicos.create') }}" {{ Route::current()->getName() == 'sistema.servicos.create' ? "class=active" : '' }}>Cadastro</a>
+                                            <a href="{{ route('sistema.servicos.create') }}" {{ Route::current()->getName() == 'sistema.servicos.create' ? "class=active" : '' }}>Cadastrar</a>
                                         </li>
                                     </ul>
                                 </li>

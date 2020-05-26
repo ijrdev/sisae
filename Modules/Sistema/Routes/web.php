@@ -14,7 +14,12 @@ Route::name('sistema.escolas.')->prefix('sisae/escolas')->group(function() {
 /* ServicosController. */
 Route::name('sistema.servicos.')->prefix('sisae/servicos')->group(function() {
     Route::get('/', 'ServicosController@index')->name('index');
-    Route::get('/cadastro', 'ServicosController@create')->name('create');
+    Route::get('/cadastrar', 'ServicosController@create')->name('create');
+    Route::post('/cadastrar', 'ServicosController@store')->name('store');
+    Route::get('/alterar/{id}', 'ServicosController@edit')->name('edit')->where('id', '[0-9]+');
+    Route::put('/alterar', 'ServicosController@update')->name('update');
+    Route::get('/excluir/{id}', 'ServicosController@remove')->name('remove')->where('id', '[0-9]+');
+    Route::delete('/excluir', 'ServicosController@delete')->name('delete');
 });
 
 /* FuncionalidadesController. */
