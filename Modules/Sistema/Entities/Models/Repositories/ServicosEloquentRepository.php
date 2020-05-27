@@ -5,7 +5,7 @@ namespace Modules\Sistema\Entities\Models\Repositories;
 use Modules\Sistema\Entities\Models\Contracts\ServicosRepositoryContract;
 use Modules\Sistema\Entities\Models\ServicosModel;
 
-class ServicosRepositoryEloquent implements ServicosRepositoryContract
+class ServicosEloquentRepository implements ServicosRepositoryContract
 {
     private $servicosModel;
 
@@ -22,5 +22,23 @@ class ServicosRepositoryEloquent implements ServicosRepositoryContract
     public function getServico($id)
     {
         return $this->servicosModel->findOrFail($id);
+    }
+
+    public function addServico($servico)
+    {
+        $this->servicosModel->create($servico);
+    }
+
+    public function update($data)
+    {
+        $servico                = $this->getServico($data['id_servico']);
+        $servico->nome_servico  = $data['nome_servico'];
+        $servico->label_servico = $data['label_servico'];
+        $servico->save();
+    }
+
+    public function delete($id)
+    {
+        $this->servicosModel->destroy($id);
     }
 }

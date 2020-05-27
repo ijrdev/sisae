@@ -21,11 +21,10 @@
 
         <link href="{{ asset('ProUi/css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('ProUi/css/plugins.css') }}" rel="stylesheet">
-
-        @yield('links')
-
         <link href="{{ url(mix('css/sistema/main.css')) }}" rel="stylesheet">
         <link href="{{ asset('ProUi/css/themes.css') }}" rel="stylesheet">
+
+        @yield('links')
     </head>
 
     <body>
@@ -164,6 +163,7 @@
                     <div id="page-content">
                         @yield('header')
                         @yield('breadcumbs')
+                        @includeWhen(session('message'), 'sistema::includes.message', session('message'))
                         @yield('content')
                     </div>
 
@@ -181,9 +181,10 @@
         <script type="text/javascript" src="{{ asset('ProUi/js/vendor/jquery.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('ProUi/js/vendor/bootstrap.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('ProUi/js/plugins.js') }}"></script>
+        <script type="text/javascript" src="{{ url(mix('js/sistema/app.js')) }}"></script>
+        <script type="text/javascript" src="{{ url(mix('js/jquery.bootstrap-growl.min.js')) }}"></script>
+        <script type="text/javascript" src="{{ url(mix('js/all.js')) }}"></script>
 
         @yield('scripts')
-
-        <script type="text/javascript" src="{{ url(mix('js/sistema/app.js')) }}"></script>
     </body>
 </html>

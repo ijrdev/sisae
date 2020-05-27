@@ -3,9 +3,10 @@
 namespace Modules\Sistema\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Modules\Sistema\Entities\Models\Contracts\ServicosRepositoryContract;
-use Modules\Sistema\Http\Requests\ServicoCadastroRequest;
+use Modules\Sistema\Http\Requests\Servicos\ServicoAlterarRequest;
+use Modules\Sistema\Http\Requests\Servicos\ServicoCadastroRequest;
+use Symfony\Component\HttpFoundation\Request;
 
 class ServicosController extends Controller
 {
@@ -24,7 +25,7 @@ class ServicosController extends Controller
         }
         catch(\Exception $e)
         {
-            // session()->flash('message', ['label' => '', '']);
+            session()->flash('message', ['label' => 'danger', 'title' => 'Serviços', 'description' => 'Algo de errado ocorreu, tente novamente.']);
 
             return redirect()->route('sistema.index.index');
         }
@@ -39,7 +40,20 @@ class ServicosController extends Controller
 
     public function store(ServicoCadastroRequest $request)
     {
-        dd($request->validated());
+        try
+        {
+            $this->servicosRepositoryContract->addServico($request->only(['nome_servico', 'label_servico']));
+
+            session()->flash('message', ['label' => 'success', 'title' => 'Serviços - Cadastrar', 'description' => 'Operação realizada com sucesso!']);
+
+            return redirect()->route('sistema.servicos.index');
+        }
+        catch(\Exception $e)
+        {
+            session()->flash('message', ['label' => 'danger', 'title' => 'Serviços - Cadastrar', 'description' => 'Algo de errado ocorreu, tente novamente.']);
+
+            return redirect()->route('sistema.servicos.index');
+        }
     }
 
     public function edit($id)
@@ -47,11 +61,10 @@ class ServicosController extends Controller
         try
         {
             $servico = $this->servicosRepositoryContract->getServico($id);
-            dd($servico);
         }
         catch(\Exception $e)
         {
-            // session()->flash('message', ['label' => '', '']);
+            session()->flash('message', ['label' => 'danger', 'title' => 'Serviços - Alterar', 'description' => 'Algo de errado ocorreu, tente novamente.']);
 
             return redirect()->route('sistema.servicos.index');
         }
@@ -59,18 +72,55 @@ class ServicosController extends Controller
         return view('sistema::servicos.edit', compact(('servico')));
     }
 
-    public function update(Request $request)
+    public function update(ServicoAlterarRequest $request)
     {
-        dd($request->validated());
+        try
+        {
+            $this->servicosRepositoryContract->update($request->validated());
+
+            session()->flash('message', ['label' => 'success', 'title' => 'Serviços - Alterar', 'description' => 'Operação realizada com sucesso!']);
+
+            return redirect()->route('sistema.servicos.index');
+        }
+        catch(\Exception $e)
+        {
+            session()->flash('message', ['label' => 'danger', 'title' => 'Serviços - Alterar', 'description' => 'Algo de errado ocorreu, tente novamente.']);
+
+            return redirect()->route('sistema.servicos.index');
+        }
     }
 
-    public function remove()
+    public function remove($id)
     {
-        return view('sistema::servicos.remove');
+        try
+        {
+            $servico = $this->servicosRepositoryContract->getServico($id);
+        }
+        catch(\Exception $e)
+        {
+            session()->flash('message', ['label' => 'danger', 'title' => 'Serviços - Excluir', 'description' => 'Algo de errado ocorreu, tente novamente.']);
+
+            return redirect()->route('sistema.servicos.index');
+        }
+
+        return view('sistema::servicos.remove', compact(('servico')));
     }
 
     public function delete(Request $request)
     {
-        dd($request->validated());
+        try
+        {
+            $this->servicosRepositoryContract->delete($request->id_servico);
+
+            session()->flash('message', ['label' => 'success', 'title' => 'Serviços - Excluir', 'description' => 'Operação realizada com sucesso!']);
+
+            return redirect()->route('sistema.servicos.index');
+        }
+        catch(\Exception $e)
+        {
+            session()->flash('message', ['label' => 'danger', 'title' => 'Serviços - Excluir', 'description' => 'Algo de errado ocorreu, tente novamente.']);
+
+            return redirect()->route('sistema.servicos.index');
+        }
     }
 }

@@ -368,7 +368,7 @@
         <script type="text/javascript" src="{{ asset('Butterfly/assets/vendor/waypoints/jquery.waypoints.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('Butterfly/assets/vendor/counterup/counterup.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('Butterfly/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-        <script type="text/javascript" src="{{ url(mix('js/site/jquery.mask.min.js')) }}"></script>
+        <script type="text/javascript" src="{{ url(mix('js/jquery.mask.min.js')) }}"></script>
         <script type="text/javascript" src="{{ url(mix('js/site/main.js')) }}"></script>
     </body>
 </html>

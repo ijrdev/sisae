@@ -129,6 +129,6 @@
   });
 
   // Mask input.
-  $("#telefone").mask("(99) 9 9999-99999");
+  $("#telefone").mask("(99) 9999-9999");
 
 })(jQuery);

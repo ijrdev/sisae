@@ -10,7 +10,6 @@ mix.setPublicPath('../../public').mergeManifest();
 mix.copyDirectoryWatched(__dirname + '/Resources/assets/img', '../../public/img/site');
 
 mix
-    .scripts(__dirname + '/Resources/assets/js/jquery.mask.min.js', '../../public/js/site/jquery.mask.min.js')
     .scripts(__dirname + '/Resources/assets/js/main.js', '../../public/js/site/main.js')
 
     .styles(__dirname + '/Resources/assets/css/font.css', '../../public/css/site/font.css')
