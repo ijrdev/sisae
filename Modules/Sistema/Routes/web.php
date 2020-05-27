@@ -25,5 +25,10 @@ Route::name('sistema.servicos.')->prefix('sisae/servicos')->group(function() {
 /* FuncionalidadesController. */
 Route::name('sistema.funcionalidades.')->prefix('sisae/funcionalidades')->group(function() {
     Route::get('/', 'FuncionalidadesController@index')->name('index');
-    Route::get('/cadastro', 'FuncionalidadesController@create')->name('create');
+    Route::get('/cadastrar', 'FuncionalidadesController@create')->name('create');
+    Route::post('/cadastrar', 'FuncionalidadesController@store')->name('store');
+    Route::get('/alterar/{id}', 'FuncionalidadesController@edit')->name('edit')->where('id', '[0-9]+');
+    Route::get('/alterar', 'FuncionalidadesController@update')->name('update');
+    Route::get('/excluir/{id}', 'FuncionalidadesController@remove')->name('remove')->where('id', '[0-9]+');
+    Route::get('/excluir', 'FuncionalidadesController@delete')->name('delete');
 });

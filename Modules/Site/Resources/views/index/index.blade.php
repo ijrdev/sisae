@@ -31,7 +31,7 @@
     <body>
         <header id="header" class="fixed-top">
             <div class="container d-flex align-items-center">
-                <a href="" class="logo mr-auto"><img src="{{ asset("img/site/logo-2x.png") }}" alt="SISAE" title="SISAE" class="img-fluid"></a>
+                <a href="{{ route('site.index.index') }}" class="logo mr-auto"><img src="{{ asset("img/site/logo-2x.png") }}" alt="SISAE" title="SISAE" class="img-fluid"></a>
                 <!-- <h1 class="logo mr-auto"><a href="index.html">Butterfly</a></h1> -->
 
                 <nav class="nav-menu d-none d-lg-block">

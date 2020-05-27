@@ -4,9 +4,6 @@ namespace Modules\Sistema\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
-use Modules\Sistema\Entities\Models\Contracts\ServicosRepositoryContract;
-use Modules\Sistema\Entities\Models\Repositories\ServicosEloquentRepository;
-use Modules\Sistema\Entities\Models\ServicosModel;
 
 class SistemaServiceProvider extends ServiceProvider
 {
@@ -42,11 +39,6 @@ class SistemaServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
-
-        // Serviços.
-        $this->app->bind(ServicosRepositoryContract::class, function($app){
-            return new ServicosEloquentRepository(new ServicosModel());
-        });
     }
 
     /**

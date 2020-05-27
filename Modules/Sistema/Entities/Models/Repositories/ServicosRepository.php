@@ -2,10 +2,9 @@
 
 namespace Modules\Sistema\Entities\Models\Repositories;
 
-use Modules\Sistema\Entities\Models\Contracts\ServicosRepositoryContract;
 use Modules\Sistema\Entities\Models\ServicosModel;
 
-class ServicosEloquentRepository implements ServicosRepositoryContract
+class ServicosRepository
 {
     private $servicosModel;
 
@@ -29,7 +28,7 @@ class ServicosEloquentRepository implements ServicosRepositoryContract
         $this->servicosModel->create($servico);
     }
 
-    public function update($data)
+    public function updateServico($data)
     {
         $servico                = $this->getServico($data['id_servico']);
         $servico->nome_servico  = $data['nome_servico'];
@@ -37,7 +36,7 @@ class ServicosEloquentRepository implements ServicosRepositoryContract
         $servico->save();
     }
 
-    public function delete($id)
+    public function deleteServico($id)
     {
         $this->servicosModel->destroy($id);
     }

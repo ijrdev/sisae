@@ -4,7 +4,7 @@ namespace Modules\Sistema\Http\Requests\Servicos;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ServicoCadastroRequest extends FormRequest
+class ServicoCadastrarRequest extends FormRequest
 {
     public function rules()
     {

@@ -45,8 +45,8 @@
                 <div id="sidebar">
                     <div id="sidebar-scroll">
                         <div class="sidebar-content">
-                            <a href="index.html" class="sidebar-brand">
-                                <i class="gi gi-flash"></i><span class="sidebar-nav-mini-hide"><strong>Pro</strong>UI</span>
+                            <a href="{{ route('sistema.index.index') }}" class="sidebar-brand">
+                                <img src="{{ asset("img/sistema/logo-2x.png") }}" alt="SISAE" title="SISAE" class="img-fluid" width="100px">
                             </a>
 
                             <div class="sidebar-section sidebar-user clearfix sidebar-nav-mini-hide">

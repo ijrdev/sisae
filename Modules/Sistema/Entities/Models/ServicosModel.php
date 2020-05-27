@@ -10,4 +10,9 @@ class ServicosModel extends Model
     protected $primaryKey = 'id_servico';
     protected $fillable   = ['nome_servico', 'label_servico'];
     public $timestamps    = false;
+
+    public function funcionalidades()
+    {
+        return $this->hasMany(FuncionalidadesModel::class, 'id_fk_servico', 'id_servico');
+    }
 }

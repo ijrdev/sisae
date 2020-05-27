@@ -18,7 +18,6 @@
             <table class="table table-vcenter table-striped">
                 <thead>
                     <tr>
-                        {{-- <th style="width: 150px;" class="text-center"><i class="gi gi-user"></i></th> --}}
                         <th class="text-center">Código</th>
                         <th class="text-center">Serviço</th>
                         <th class="text-center">Label</th>
@@ -29,7 +28,7 @@
                     @empty($servicos)
                         <tr>
                             <td colspan="12" class="text-center">
-                                Nenhuma label encontrada.
+                                Nenhum registro encontrado.
                             </td>
                         </tr>
                     @else

@@ -3,25 +3,25 @@
 namespace Modules\Sistema\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Modules\Sistema\Entities\Models\Contracts\ServicosRepositoryContract;
+use Modules\Sistema\Entities\Models\Repositories\ServicosRepository;
 use Modules\Sistema\Http\Requests\Servicos\ServicoAlterarRequest;
-use Modules\Sistema\Http\Requests\Servicos\ServicoCadastroRequest;
+use Modules\Sistema\Http\Requests\Servicos\ServicoCadastrarRequest;
 use Symfony\Component\HttpFoundation\Request;
 
 class ServicosController extends Controller
 {
-    private $servicosRepositoryContract;
+    private $servicosRepository;
 
-    public function __construct(ServicosRepositoryContract $servicosRepositoryContract)
+    public function __construct(ServicosRepository $servicosRepository)
     {
-        $this->servicosRepositoryContract = $servicosRepositoryContract;
+        $this->servicosRepository = $servicosRepository;
     }
 
     public function index()
     {
         try
         {
-            $servicos = $this->servicosRepositoryContract->getAllServicos();
+            $servicos = $this->servicosRepository->getAllServicos();
         }
         catch(\Exception $e)
         {
@@ -38,11 +38,11 @@ class ServicosController extends Controller
         return view('sistema::servicos.create');
     }
 
-    public function store(ServicoCadastroRequest $request)
+    public function store(ServicoCadastrarRequest $request)
     {
         try
         {
-            $this->servicosRepositoryContract->addServico($request->only(['nome_servico', 'label_servico']));
+            $this->servicosRepository->addServico($request->only(['nome_servico', 'label_servico']));
 
             session()->flash('message', ['label' => 'success', 'title' => 'Serviços - Cadastrar', 'description' => 'Operação realizada com sucesso!']);
 
@@ -60,7 +60,7 @@ class ServicosController extends Controller
     {
         try
         {
-            $servico = $this->servicosRepositoryContract->getServico($id);
+            $servico = $this->servicosRepository->getServico($id);
         }
         catch(\Exception $e)
         {
@@ -76,7 +76,7 @@ class ServicosController extends Controller
     {
         try
         {
-            $this->servicosRepositoryContract->update($request->validated());
+            $this->servicosRepository->updateServico($request->validated());
 
             session()->flash('message', ['label' => 'success', 'title' => 'Serviços - Alterar', 'description' => 'Operação realizada com sucesso!']);
 
@@ -94,7 +94,7 @@ class ServicosController extends Controller
     {
         try
         {
-            $servico = $this->servicosRepositoryContract->getServico($id);
+            $servico = $this->servicosRepository->getServico($id);
         }
         catch(\Exception $e)
         {
@@ -110,7 +110,7 @@ class ServicosController extends Controller
     {
         try
         {
-            $this->servicosRepositoryContract->delete($request->id_servico);
+            $this->servicosRepository->deleteServico($request->id_servico);
 
             session()->flash('message', ['label' => 'success', 'title' => 'Serviços - Excluir', 'description' => 'Operação realizada com sucesso!']);
 

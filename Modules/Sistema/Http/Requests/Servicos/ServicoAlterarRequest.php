@@ -4,23 +4,23 @@ namespace Modules\Sistema\Http\Requests\Servicos;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Validator;
-use Modules\Sistema\Entities\Models\Contracts\ServicosRepositoryContract;
+use Modules\Sistema\Entities\Models\Repositories\ServicosRepository;
 
 class ServicoAlterarRequest extends FormRequest
 {
-    private $servicosRepositoryContract;
+    private $servicosRepository;
 
-    public function __construct(ServicosRepositoryContract $servicosRepositoryContract)
+    public function __construct(ServicosRepository $servicosRepository)
     {
-        $this->servicosRepositoryContract = $servicosRepositoryContract;
+        $this->servicosRepository = $servicosRepository;
     }
 
     public function rules()
     {
         Validator::extend('check', function($attribute, $value, $parameters)
         {
-            $servicos    = $this->servicosRepositoryContract->getAllServicos();
-            $nomeServico = $this->servicosRepositoryContract->getServico($this->id_servico);
+            $servicos    = $this->servicosRepository->getAllServicos();
+            $nomeServico = $this->servicosRepository->getServico($this->id_servico);
             
             if($nomeServico['nome_servico'] == $this->nome_servico)
             {
