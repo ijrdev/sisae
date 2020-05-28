@@ -8,7 +8,10 @@ Route::name('sistema.index.')->prefix('sisae')->group(function() {
 /* EscolaController. */
 Route::name('sistema.escolas.')->prefix('sisae/escolas')->group(function() {
     Route::get('/', 'EscolasController@index')->name('index');
-    Route::get('/cadastro', 'EscolasController@create')->name('create');
+    Route::get('/cadastrar', 'EscolasController@create')->name('create');
+    Route::post('/cadastrar', 'EscolasController@store')->name('store');
+    Route::get('/alterar/{id}', 'EscolasController@edit')->name('edit')->where('id', '[0-9]+');
+    Route::put('/alterar', 'EscolasController@update')->name('update');
 });
 
 /* ServicosController. */
@@ -28,7 +31,7 @@ Route::name('sistema.funcionalidades.')->prefix('sisae/funcionalidades')->group(
     Route::get('/cadastrar', 'FuncionalidadesController@create')->name('create');
     Route::post('/cadastrar', 'FuncionalidadesController@store')->name('store');
     Route::get('/alterar/{id}', 'FuncionalidadesController@edit')->name('edit')->where('id', '[0-9]+');
-    Route::get('/alterar', 'FuncionalidadesController@update')->name('update');
+    Route::put('/alterar', 'FuncionalidadesController@update')->name('update');
     Route::get('/excluir/{id}', 'FuncionalidadesController@remove')->name('remove')->where('id', '[0-9]+');
-    Route::get('/excluir', 'FuncionalidadesController@delete')->name('delete');
+    Route::delete('/excluir', 'FuncionalidadesController@delete')->name('delete');
 });

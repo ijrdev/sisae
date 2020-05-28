@@ -3,7 +3,6 @@
 namespace Modules\Sistema\Entities\Models\Repositories;
 
 use Modules\Sistema\Entities\Models\FuncionalidadesModel;
-use Modules\Sistema\Entities\Models\ServicosModel;
 
 class FuncionalidadesRepository
 {
@@ -16,7 +15,7 @@ class FuncionalidadesRepository
 
     public function getAllFuncionalidades()
     {
-        return $this->funcionalidadesModel->all();
+        return $this->funcionalidadesModel->with('servico')->get();
     }    
 
     public function getFuncionalidade($id)
@@ -29,15 +28,15 @@ class FuncionalidadesRepository
         $this->funcionalidadesModel->create($funcionalidade);
     }
 
-    public function updateServico($data)
+    public function updateFuncionalidade($data)
     {
-        // $servico                = $this->getServico($data['id_servico']);
-        // $servico->nome_servico  = $data['nome_servico'];
-        // $servico->label_servico = $data['label_servico'];
-        // $servico->save();
+        $funcionalidade             = $this->getFuncionalidade($data['id_funcionalidade']);
+        $funcionalidade->nome_func  = $data['nome_func'];
+        $funcionalidade->label_func = $data['label_func'];
+        $funcionalidade->save();
     }
 
-    public function deleteServico($id)
+    public function deleteFuncionalidade($id)
     {
         $this->funcionalidadesModel->destroy($id);
     }

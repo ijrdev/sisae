@@ -6,7 +6,7 @@
     <div class="content-header">
         <div class="header-section">
             <h1>
-                <i class="fa fa-cogs"></i>Funcionalidades<br><small>Todos as funcionalidades criadas.</small>
+                <i class="fa fa-cogs" style="color: #55538B;"></i>Funcionalidades<br><small>Todos as funcionalidades criadas.</small>
             </h1>
         </div>
     </div>

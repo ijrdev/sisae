@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Modules\Sistema\Entities\Models\Repositories\FuncionalidadesRepository;
 use Modules\Sistema\Entities\Models\Repositories\ServicosRepository;
+use Modules\Sistema\Http\Requests\Funcionalidades\FuncionalidadesAlterarRequest;
 use Modules\Sistema\Http\Requests\Funcionalidades\FuncionalidadesCadastrarRequest;
 
 class FuncionalidadesController extends Controller
@@ -70,6 +71,76 @@ class FuncionalidadesController extends Controller
         catch(\Exception $e)
         {
             session()->flash('message', ['label' => 'danger', 'title' => 'Serviços - Cadastrar', 'description' => 'Algo de errado ocorreu, tente novamente.']);
+
+            return redirect()->route('sistema.funcionalidades.index');
+        }
+    }
+
+    public function edit($id)
+    {
+        try
+        {
+            $funcionalidade = $this->funcionalidadesRepository->getFuncionalidade($id);
+            $servico        = $funcionalidade->servico;
+        }
+        catch(\Exception $e)
+        {
+            session()->flash('message', ['label' => 'danger', 'title' => 'Funcionalidade - Alterar', 'description' => 'Algo de errado ocorreu, tente novamente.']);
+
+            return redirect()->route('sistema.funcionalidade.index');
+        }
+
+        return view('sistema::funcionalidades.edit', compact('funcionalidade', 'servico'));
+    }
+
+    public function update(FuncionalidadesAlterarRequest $request)
+    {
+        try
+        {
+            $this->funcionalidadesRepository->updateFuncionalidade($request->validated());
+
+            session()->flash('message', ['label' => 'success', 'title' => 'Funcionalidades - Alterar', 'description' => 'Operação realizada com sucesso!']);
+
+            return redirect()->route('sistema.funcionalidades.index');
+        }
+        catch(\Exception $e)
+        {
+            session()->flash('message', ['label' => 'danger', 'title' => 'Funcionalidades - Alterar', 'description' => 'Algo de errado ocorreu, tente novamente.']);
+
+            return redirect()->route('sistema.funcionalidades.index');
+        }
+    }
+
+    public function remove($id)
+    {
+        try
+        {
+            $funcionalidade = $this->funcionalidadesRepository->getFuncionalidade($id);
+            $servico        = $funcionalidade->servico;
+        }
+        catch(\Exception $e)
+        {
+            session()->flash('message', ['label' => 'danger', 'title' => 'Funcionalidades - Excluir', 'description' => 'Algo de errado ocorreu, tente novamente.']);
+
+            return redirect()->route('sistema.funcionalidades.index');
+        }
+
+        return view('sistema::funcionalidades.remove', compact('funcionalidade', 'servico'));
+    }
+
+    public function delete(Request $request)
+    {
+        try
+        {
+            $this->funcionalidadesRepository->deleteFuncionalidade($request->id_funcionalidade);
+
+            session()->flash('message', ['label' => 'success', 'title' => 'Funcionalidades - Excluir', 'description' => 'Operação realizada com sucesso!']);
+
+            return redirect()->route('sistema.funcionalidades.index');
+        }
+        catch(\Exception $e)
+        {
+            session()->flash('message', ['label' => 'danger', 'title' => 'Funcionalidades - Excluir', 'description' => 'Algo de errado ocorreu, tente novamente.']);
 
             return redirect()->route('sistema.funcionalidades.index');
         }

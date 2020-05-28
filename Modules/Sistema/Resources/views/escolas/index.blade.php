@@ -6,15 +6,9 @@
     <div class="content-header">
         <div class="header-section">
             <h1>
-                <i class="fa fa-university"></i>ESCOLAS<br><small>Todas as escolas registradas no sistema.</small>
+                <i class="fa fa-university" style="color: #55538B;"></i>Escolas<br><small>Todas as escolas registradas no sistema.</small>
             </h1>
         </div>
-
-{{--        <ul class="nav-horizontal text-center">--}}
-{{--            <li>--}}
-{{--                <a href="{{ route('sistema.escolas.create') }}"><i class="gi gi-plus"></i> Cadastrar</a>--}}
-{{--            </li>--}}
-{{--        </ul>--}}
     </div>
 @endsection
 
@@ -23,102 +17,50 @@
         <div class="table-responsive">
             <table class="table table-vcenter table-striped">
                 <thead>
-                <tr>
-                    <th style="width: 150px;" class="text-center"><i class="gi gi-user"></i></th>
-                    <th>Client</th>
-                    <th>Email</th>
-                    <th>Subscription</th>
-                    <th style="width: 150px;" class="text-center">Actions</th>
-                </tr>
+                    <tr>
+                        <th class="text-center">Código</th>
+                        <th class="text-center">Data Cadastro</th>
+                        <th class="text-center">Nome</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td class="text-center"><img src="img/placeholders/avatars/avatar14.jpg" alt="avatar" class="img-circle"></td>
-                    <td><a href="page_ready_user_profile.html">client1</a></td>
-                    <td>client1@example.com</td>
-                    <td><a href="javascript:void(0)" class="label label-warning">Trial</a></td>
-                    <td class="text-center">
-                        <div class="btn-group btn-group-xs">
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Delete"><i class="fa fa-times"></i></a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center"><img src="img/placeholders/avatars/avatar4.jpg" alt="avatar" class="img-circle"></td>
-                    <td><a href="page_ready_user_profile.html">client2</a></td>
-                    <td>client2@example.com</td>
-                    <td><a href="javascript:void(0)" class="label label-success">VIP</a></td>
-                    <td class="text-center">
-                        <div class="btn-group btn-group-xs">
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Delete"><i class="fa fa-times"></i></a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center"><img src="img/placeholders/avatars/avatar8.jpg" alt="avatar" class="img-circle"></td>
-                    <td><a href="page_ready_user_profile.html">client3</a></td>
-                    <td>client3@example.com</td>
-                    <td><a href="javascript:void(0)" class="label label-info">Business</a></td>
-                    <td class="text-center">
-                        <div class="btn-group btn-group-xs">
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Delete"><i class="fa fa-times"></i></a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center"><img src="img/placeholders/avatars/avatar12.jpg" alt="avatar" class="img-circle"></td>
-                    <td><a href="page_ready_user_profile.html">client4</a></td>
-                    <td>client4@example.com</td>
-                    <td><a href="javascript:void(0)" class="label label-success">VIP</a></td>
-                    <td class="text-center">
-                        <div class="btn-group btn-group-xs">
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Delete"><i class="fa fa-times"></i></a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center"><img src="img/placeholders/avatars/avatar3.jpg" alt="avatar" class="img-circle"></td>
-                    <td><a href="page_ready_user_profile.html">client5</a></td>
-                    <td>client5@example.com</td>
-                    <td><a href="javascript:void(0)" class="label label-primary">Personal</a></td>
-                    <td class="text-center">
-                        <div class="btn-group btn-group-xs">
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Delete"><i class="fa fa-times"></i></a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center"><img src="img/placeholders/avatars/avatar16.jpg" alt="avatar" class="img-circle"></td>
-                    <td><a href="page_ready_user_profile.html">client6</a></td>
-                    <td>client6@example.com</td>
-                    <td><a href="javascript:void(0)" class="label label-info">Business</a></td>
-                    <td class="text-center">
-                        <div class="btn-group btn-group-xs">
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Delete"><i class="fa fa-times"></i></a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center"><img src="img/placeholders/avatars/avatar1.jpg" alt="avatar" class="img-circle"></td>
-                    <td><a href="page_ready_user_profile.html">client7</a></td>
-                    <td>client7@example.com</td>
-                    <td><a href="javascript:void(0)" class="label label-primary">Personal</a></td>
-                    <td class="text-center">
-                        <div class="btn-group btn-group-xs">
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Delete"><i class="fa fa-times"></i></a>
-                        </div>
-                    </td>
-                </tr>
+                    @empty($escolas)
+                        <tr>
+                            <td colspan="12" class="text-center">
+                                Nenhum registro encontrado.
+                            </td>
+                        </tr>
+                    @else
+                        @foreach($escolas as $escola)
+                            <tr>
+                                <td class="text-center">{{ $escola->id_escola }}</td>    
+                                <td class="text-center">{{ $escola->dt_cadastro->format('d/m/Y') }}</td>
+                                <td class="text-center">{{ $escola->nome_escola }}</td>
+                                <td class="text-center">{{ $escola->email_escola }}</td>
+
+                                @switch($escola->status_escola)
+                                    @case('A')
+                                        <td class="text-center"><span class="label label-success"><strong>Ativo</strong></span></td>
+                                        @break
+
+                                    @case('I')
+                                        <td class="text-center"><span class="label label-danger"><strong>Inativo</strong></span></td>
+                                        @break
+                                @endswitch
+
+                                <td class="text-center">
+                                    <div class="btn-group-xs">
+                                        <a href="{{ route('sistema.escolas.edit', ['id' => $escola->id_escola]) }}" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Alterar"><i class="fa fa-pencil"></i></a>
+                                    </div>  
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endempty
                 </tbody>
             </table>
         </div>
-        <!-- END Responsive Full Content -->
     </div>
 @endsection

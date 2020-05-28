@@ -6,7 +6,7 @@
     <div class="content-header">
         <div class="header-section">
             <h1>
-                <i class="fa fa-cog"></i>Serviços<br><small>Todos os serviços disponíveis.</small>
+                <i class="fa fa-cog" style="color: #55538B;"></i>Serviços<br><small>Todos os serviços disponíveis.</small>
             </h1>
         </div>
     </div>
