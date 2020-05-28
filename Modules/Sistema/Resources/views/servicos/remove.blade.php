@@ -19,7 +19,7 @@
 
 @section('content')
     <div class="block">
-        @if($servico->funcionalidades->isEmpty())
+        @if($funcionalidades->isEmpty())
             <div class="row">
                 <div class="col-sm-12">
                     <h4><i class="fa fa-times" style="color: #ef8a80;"></i> Você está prestes a realizar a exclusão do serviço:</h4>

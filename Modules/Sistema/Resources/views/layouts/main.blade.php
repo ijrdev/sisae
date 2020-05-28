@@ -98,6 +98,10 @@
                                         <li>
                                             <a href="{{ route('sistema.funcionalidades.index') }}" {{ Route::current()->getName() == 'sistema.funcionalidades.index' ? "class=active" : '' }}>Todas as funcionalidades</a>
                                         </li>
+
+                                        <li>
+                                            <a href="{{ route('sistema.funcionalidades.create') }}" {{ Route::current()->getName() == 'sistema.funcionalidades.create' ? "class=active" : '' }}>Cadastrar</a>
+                                        </li>
                                     </ul>
                                 </li>
 

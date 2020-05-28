@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Sistema\Http\Requests\Servicos;
+namespace Modules\Sistema\Http\Requests\Funcionalidades;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Validator;
 use Modules\Sistema\Entities\Models\Repositories\ServicosRepository;
 
-class ServicoAlterarRequest extends FormRequest
+class FuncionalidadesCadastrarRequest extends FormRequest
 {
     private $servicosRepository;
 
@@ -17,20 +17,19 @@ class ServicoAlterarRequest extends FormRequest
 
     public function rules()
     {
-        Validator::extend('check', function($attribute, $value, $parameters)
+        Validator::extend('check_servico_funcionalidade', function($attribute, $value, $parameters)
         {
-            $servicos    = $this->servicosRepository->getAllServicos();
-            $nomeServico = $this->servicosRepository->getServico($this->id_servico);
+            $servico_funcionalidades = $this->servicosRepository->getServico($this->servico)->funcionalidades;
             
-            if($nomeServico['nome_servico'] == $this->nome_servico)
+            if($servico_funcionalidades->isEmpty())
             {
                 return true;
             }
             else
             {
-                foreach($servicos as $servico) 
+                foreach($servico_funcionalidades as $funcionalidade)
                 {
-                    if($this->nome_servico == $servico->nome_servico)
+                    if($this->nome_func == $funcionalidade->nome_func)
                     {
                         return false;
                     }
@@ -41,9 +40,9 @@ class ServicoAlterarRequest extends FormRequest
         });
 
         return [
-            'id_servico'  => 'required',
-            'nome_servico'  => 'required|check|min:3|max:50',
-            'label_servico' => 'required|min:3|max:20'
+            'servico'   => 'required|check_servico_funcionalidade',
+            'nome_func'  => 'required|min:3|max:20',
+            'label_func' => 'required|min:3|max:50'
         ];
     }
 
@@ -55,7 +54,7 @@ class ServicoAlterarRequest extends FormRequest
     public function messages()
     {
         return [
-            'nome_servico.check' => 'Existe um serviço cadastrado com o mesmo nome escolhido.'
+            'servico.check_servico_funcionalidade' => 'O serviço escolhido já tem essa funcionalidade.'
         ];
     }
 }
