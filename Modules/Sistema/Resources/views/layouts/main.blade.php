@@ -187,8 +187,9 @@
         <script type="text/javascript" src="{{ asset('ProUi/js/plugins.js') }}"></script>
         <script type="text/javascript" src="{{ url(mix('js/sistema/app.js')) }}"></script>
         <script type="text/javascript" src="{{ url(mix('js/jquery.bootstrap-growl.min.js')) }}"></script>
-        <script type="text/javascript" src="{{ url(mix('js/all.js')) }}"></script>
 
         @yield('scripts')
+
+        <script type="text/javascript" src="{{ url(mix('js/all.js')) }}"></script>
     </body>
 </html>

@@ -18,15 +18,20 @@ class EscolasRepository
         return $this->escolasModel->all();
     }
 
-    // public function getServico($id)
-    // {
-    //     return $this->servicosModel->findOrFail($id);
-    // }
+    public function getEscola($id)
+    {
+        return $this->escolasModel->findOrFail($id);
+    }
 
-    // public function addServico($servico)
-    // {
-    //     $this->servicosModel->create($servico);
-    // }
+    public function getEscolaCNPJ($cnpj)
+    {
+        return $this->escolasModel->where('cnpj', '=', $cnpj)->get();
+    }
+
+    public function addEscola($servico)
+    {
+        $this->escolasModel->create($servico);
+    }
 
     // public function updateServico($data)
     // {
@@ -34,10 +39,5 @@ class EscolasRepository
     //     $servico->nome_servico  = $data['nome_servico'];
     //     $servico->label_servico = $data['label_servico'];
     //     $servico->save();
-    // }
-
-    // public function deleteServico($id)
-    // {
-    //     $this->servicosModel->destroy($id);
     // }
 }

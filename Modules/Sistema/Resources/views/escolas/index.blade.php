@@ -37,7 +37,7 @@
                         @foreach($escolas as $escola)
                             <tr>
                                 <td class="text-center">{{ $escola->id_escola }}</td>    
-                                <td class="text-center">{{ $escola->dt_cadastro->format('d/m/Y') }}</td>
+                                <td class="text-center">{{ date('d-m-Y', strtotime($escola->dt_cadastro)) }}</td>
                                 <td class="text-center">{{ $escola->nome_escola }}</td>
                                 <td class="text-center">{{ $escola->email_escola }}</td>
 

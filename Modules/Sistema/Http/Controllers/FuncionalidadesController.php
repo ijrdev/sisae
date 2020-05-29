@@ -56,13 +56,7 @@ class FuncionalidadesController extends Controller
     {
         try
         {
-            $data = [
-                'nome_func'     => $request->nome_func,
-                'label_func'    => $request->label_func,
-                'id_fk_servico' => $request->servico
-            ];
-            
-            $this->funcionalidadesRepository->addFuncionalidade($data);
+            $this->funcionalidadesRepository->addFuncionalidade($request->validated() + ['id_fk_servico' => $request->validated()['servico']]);
 
             session()->flash('message', ['label' => 'success', 'title' => 'Serviços - Cadastrar', 'description' => 'Operação realizada com sucesso!']);
 

@@ -42,7 +42,7 @@ class ServicosController extends Controller
     {
         try
         {
-            $this->servicosRepository->addServico($request->only(['nome_servico', 'label_servico']));
+            $this->servicosRepository->addServico($request->validated());
 
             session()->flash('message', ['label' => 'success', 'title' => 'Serviços - Cadastrar', 'description' => 'Operação realizada com sucesso!']);
 

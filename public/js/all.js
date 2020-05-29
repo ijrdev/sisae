@@ -8,8 +8,20 @@ $(document).ready(function() {
     {
         message(label, title, description);
     }
+
+    // Mask Sistema Escolas Create/Edit.
+    if($('#cnpj'))
+    {
+        $('#cnpj').mask('99.999.999/9999-99');
+    }
+    
+    if($('#telefone'))
+    {
+        $('#telefone').mask('(99) 9999-9999');
+    }
 });
 
+// Boostrap Message.
 function message(label, title, description)
 {
     $.bootstrapGrowl("<h4 style='font-weight: bold;'>"+title+"</h4><p>"+description+"</p>", {
@@ -22,4 +34,14 @@ function message(label, title, description)
         allow_dismiss: true, // If true then will display a cross to close the popup.
         stackup_spacing: 10 // spacing between consecutively stacked growls.
     });
+}
+
+// Form Submit Loading.
+function formSubmitLoading(formName)
+{
+    console.log(formName);
+    $('#form-buttons').children().hide();
+    $('#form-buttons').append("<div class='col-lg-12 text-center' style='color: #1BBAE1;'><i class='fa fa-spinner fa-2x fa-spin'></i></div>");
+    
+    $('#' + formName).submit();
 }
