@@ -34,6 +34,6 @@ Route::name('sistema.escolas.')->prefix('sisae/escolas')->group(function() {
     Route::post('/cadastrar', 'EscolasController@store')->name('store');
     Route::get('/alterar/{id}', 'EscolasController@edit')->name('edit')->where('id', '[0-9]+');
     Route::put('/alterar', 'EscolasController@update')->name('update');
-    Route::get('/servicos', 'EscolasController@servicos')->name('servicos')->where('id', '[0-9]+');
-    // Route::post('/servicos', 'EscolasController@servicos')->name('servicos');
+    Route::get('/servicos/{id}', 'EscolasController@servicos')->name('servicos')->where('id', '[0-9]+');
+    Route::post('/servicos', 'EscolasController@habilitar')->name('habilitar');
 });

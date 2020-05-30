@@ -20,7 +20,7 @@ class EscolasRepository
 
     public function getEscola($id)
     {
-        return $this->escolasModel->findOrFail($id);
+        return $this->escolasModel->findOrFail((int) $id);
     }
 
     public function getEscolaCNPJ($cnpj)
@@ -35,7 +35,7 @@ class EscolasRepository
 
     public function updateEscola($data)
     {
-        $escola                  = $this->getEscola($data['id_escola']);
+        $escola                  = $this->getEscola((int) $data['id_escola']);
         $escola->nome_escola     = $data['nome_escola'];
         $escola->telefone_escola = $data['telefone_escola'];
         $escola->endereco_escola = $data['endereco_escola'];

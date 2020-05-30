@@ -43,6 +43,34 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <div class="col-lg-offset-3 col-md-offset-3 col-lg-6 col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-square"></i></span>
+                                <input type="text" name="icon" class="form-control" placeholder="Ícone do serviço" value="{{ old('icon') ?? '' }}" required>
+                            </div>
+                            @error('icon')
+                                <div class="help-block"><span class="text-danger">{{ $message }}</span></div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-offset-3 col-md-offset-3 col-lg-6 col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                <select name="tipo_servico" class="select-chosen" data-placeholder="Tipo do serviço">
+                                    <option value=""></option>
+                                    <option value="L">Local</option>
+                                    <option value="A">Ambiente</option>
+                                </select>
+                            </div>
+                            @error('tipo_servico')
+                                <div class="help-block"><span class="text-danger">{{ $message }}</span></div>
+                            @enderror
+                        </div>
+                    </div>
+
                     <div class="form-group form-actions" id="form-buttons">
                         <div class="col-lg-12 text-center">
                             <button type="button" class="btn btn-sm btn-primary" onclick="formSubmitLoading('sistema-servicos-create')"><i class="fa fa-check"></i> Cadastrar</button>

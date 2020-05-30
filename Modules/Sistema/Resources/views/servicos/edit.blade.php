@@ -43,9 +43,44 @@
                         <div class="col-lg-offset-3 col-md-offset-3 col-lg-6 col-md-6">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-bookmark-o"></i></span>
-                                <input type="text" name="label_servico" class="form-control" placeholder="Label do serviço" value="{{ $servico->label_servico ?? old('label_servico') }}" required>
+                                <input type="text" name="label_servico" class="form-control" placeholder="Label do serviço" value="{{  $servico->label_servico ?? old('label_servico') }}" required>
                             </div>
                             @error('label_servico')
+                                <div class="help-block"><span class="text-danger">{{ $message }}</span></div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-offset-3 col-md-offset-3 col-lg-6 col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-square"></i></span>
+                                <input type="text" name="icon" class="form-control" placeholder="Ícone do serviço" value="{{ $servico->icon ?? old('icon') }}" required>
+                            </div>
+                            @error('icon')
+                                <div class="help-block"><span class="text-danger">{{ $message }}</span></div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-offset-3 col-md-offset-3 col-lg-6 col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                <select name="tipo_servico" class="select-chosen" data-placeholder="Tipo do serviço">
+                                    @switch($servico->tipo_servico)
+                                        @case('L')
+                                            <option value="L">Local</option>
+                                            <option value="A">Ambiente</option>
+                                            @break
+                                        @case('A')
+                                            <option value="A">Ambiente</option>
+                                            <option value="L">Local</option>
+                                            @break
+                                    @endswitch
+                                </select>
+                            </div>
+                            @error('tipo_servico')
                                 <div class="help-block"><span class="text-danger">{{ $message }}</span></div>
                             @enderror
                         </div>

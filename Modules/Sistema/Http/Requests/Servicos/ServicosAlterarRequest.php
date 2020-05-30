@@ -41,9 +41,11 @@ class ServicosAlterarRequest extends FormRequest
         });
 
         return [
-            'id_servico'  => 'required',
+            'id_servico'    => 'required',
             'nome_servico'  => 'required|check_servico|min:3|max:50',
-            'label_servico' => 'required|min:3|max:20'
+            'label_servico' => 'required|min:3|max:20',
+            'tipo_servico'  => 'required|min:1|max:1',
+            'icon'          => 'required|min:5|max:50'
         ];
     }
 

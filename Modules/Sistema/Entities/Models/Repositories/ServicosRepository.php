@@ -20,7 +20,7 @@ class ServicosRepository
 
     public function getServico($id)
     {
-        return $this->servicosModel->findOrFail($id);
+        return $this->servicosModel->findOrFail((int) $id);
     }
 
     public function addServico($servico)
@@ -30,9 +30,11 @@ class ServicosRepository
 
     public function updateServico($data)
     {
-        $servico                = $this->getServico($data['id_servico']);
+        $servico                = $this->getServico((int) $data['id_servico']);
         $servico->nome_servico  = $data['nome_servico'];
         $servico->label_servico = $data['label_servico'];
+        $servico->icon          = $data['icon'];
+        $servico->tipo_servico  = $data['tipo_servico'];
         $servico->save();
     }
 

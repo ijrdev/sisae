@@ -20,7 +20,7 @@ class FuncionalidadesRepository
 
     public function getFuncionalidade($id)
     {
-        return $this->funcionalidadesModel->findOrFail($id);
+        return $this->funcionalidadesModel->findOrFail((int) $id);
     }  
 
     public function addFuncionalidade($funcionalidade)
@@ -30,7 +30,7 @@ class FuncionalidadesRepository
 
     public function updateFuncionalidade($data)
     {
-        $funcionalidade             = $this->getFuncionalidade($data['id_funcionalidade']);
+        $funcionalidade             = $this->getFuncionalidade((int) $data['id_funcionalidade']);
         $funcionalidade->nome_func  = $data['nome_func'];
         $funcionalidade->label_func = $data['label_func'];
         $funcionalidade->save();

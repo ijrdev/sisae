@@ -8,7 +8,7 @@ class ServicosModel extends Model
 {
     protected $table      = 'tb_servicos';
     protected $primaryKey = 'id_servico';
-    protected $fillable   = ['nome_servico', 'label_servico'];
+    protected $fillable   = ['nome_servico', 'label_servico', 'icon', 'tipo_servico'];
     public $timestamps    = false;
 
     public function funcionalidades()

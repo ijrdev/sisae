@@ -21,6 +21,7 @@
                         <th class="text-center">Código</th>
                         <th class="text-center">Serviço</th>
                         <th class="text-center">Label</th>
+                        <th class="text-center">Tipo</th>
                         <th class="text-center">Ações</th>
                     </tr>
                 </thead>
@@ -37,6 +38,17 @@
                                 <td class="text-center">{{ $servico->id_servico }}</td>    
                                 <td class="text-center">{{ $servico->nome_servico }}</td>    
                                 <td class="text-center">{{ $servico->label_servico }}</td>  
+                                <td class="text-center">
+                                    @switch($servico->tipo_servico)
+                                        @case('L')
+                                            Local
+                                            
+                                            @break
+                                        @case('A')
+                                            Ambiente
+                                            @break
+                                    @endswitch
+                                </td>
                                 <td class="text-center">
                                     <div class="btn-group-xs">
                                         <a href="{{ route('sistema.servicos.edit', ['id' => $servico->id_servico]) }}" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Alterar"><i class="fa fa-pencil"></i></a>
