@@ -29,16 +29,16 @@
 
         <div class="row">
             <div class="col-sm-12">
-                <form action="{{ route('sistema.funcionalidades.delete') }}" method="post" class="form-horizontal form-bordered">
+                <form action="{{ route('sistema.funcionalidades.delete') }}" id="sistema-funcionalidades-remove" method="post" class="form-horizontal form-bordered">
                     @method("DELETE")
                     @csrf
 
                     <input type="hidden" name="id_funcionalidade" class="form-control" value="{{ $funcionalidade->id_funcionalidade ?? old('id_funcionalidade') }}" required>
                     
-                    <div class="form-group form-actions">
+                    <div class="form-group form-actions" id="form-buttons">
                         <div class="col-lg-12 text-center">
                             <a class="btn btn-sm btn-default" href="{{ route('sistema.funcionalidades.index') }}"><i class="fa fa-reply"></i> Voltar</a>
-                            <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Excluir</button>
+                            <button type="button" class="btn btn-sm btn-danger" onclick="formSubmitLoading('sistema-funcionalidades-remove')"><i class="fa fa-times"></i> Excluir</button>
                         </div>
                     </div>
                 </form>

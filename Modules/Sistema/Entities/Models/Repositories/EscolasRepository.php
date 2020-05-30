@@ -25,7 +25,7 @@ class EscolasRepository
 
     public function getEscolaCNPJ($cnpj)
     {
-        return $this->escolasModel->where('cnpj', '=', $cnpj)->get();
+        return $this->escolasModel->where('cnpj', '=', $cnpj)->get('cnpj')->first();
     }
 
     public function addEscola($servico)
@@ -33,11 +33,14 @@ class EscolasRepository
         $this->escolasModel->create($servico);
     }
 
-    // public function updateServico($data)
-    // {
-    //     $servico                = $this->getServico($data['id_servico']);
-    //     $servico->nome_servico  = $data['nome_servico'];
-    //     $servico->label_servico = $data['label_servico'];
-    //     $servico->save();
-    // }
+    public function updateEscola($data)
+    {
+        $escola                  = $this->getEscola($data['id_escola']);
+        $escola->nome_escola     = $data['nome_escola'];
+        $escola->telefone_escola = $data['telefone_escola'];
+        $escola->endereco_escola = $data['endereco_escola'];
+        $escola->email_escola    = $data['email_escola'];
+        $escola->status_escola   = $data['status_escola'];
+        $escola->save();
+    }
 }

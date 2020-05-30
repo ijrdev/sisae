@@ -13,6 +13,7 @@ class EscolasModel extends Model
         'telefone_escola', 'endereco_escola', 
         'email_escola', 'dt_cadastro', 'status_escola'
     ];
+    protected $dates = ['dt_cadastro'];
     public $timestamps = false;
 
     public function usuarioMaster()

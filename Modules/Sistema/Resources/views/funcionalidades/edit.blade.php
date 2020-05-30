@@ -21,7 +21,7 @@
     <div class="block">
         <div class="row">
             <div class="col-sm-12">
-                <form action="{{ route('sistema.funcionalidades.update') }}" method="post" class="form-horizontal form-bordered">
+                <form action="{{ route('sistema.funcionalidades.update') }}" id="sistema-funcionalidades-edit" method="post" class="form-horizontal form-bordered">
                     @method('PUT')
                     @csrf
 
@@ -63,10 +63,10 @@
                         </div>
                     </div>
 
-                    <div class="form-group form-actions">
+                    <div class="form-group form-actions" id="form-buttons">
                         <div class="col-lg-12 text-center">
                             <a class="btn btn-sm btn-default" href="{{ route('sistema.funcionalidades.index') }}"><i class="fa fa-reply"></i> Voltar</a>
-                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Alterar</button>
+                            <button type="button" class="btn btn-sm btn-primary" onclick="formSubmitLoading('sistema-funcionalidades-edit')"><i class="fa fa-check"></i> Alterar</button>
                         </div>
                     </div>
                 </form>

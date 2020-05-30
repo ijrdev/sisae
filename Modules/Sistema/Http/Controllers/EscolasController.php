@@ -3,7 +3,9 @@
 namespace Modules\Sistema\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Modules\Sistema\Entities\Models\Repositories\EscolasRepository;
+use Modules\Sistema\Http\Requests\Escolas\EscolasAlterarRequest;
 use Modules\Sistema\Http\Requests\Escolas\EscolasCadastrarRequest;
 
 class EscolasController extends Controller
@@ -40,7 +42,7 @@ class EscolasController extends Controller
     {
         try
         {
-            $this->escolasRepository->addEscola($request->validated() + ['dt_cadastro' => date('Y-m-d')]);
+            $this->escolasRepository->addEscola($request->validated() + ['dt_cadastro' => Carbon::now()]);
 
             session()->flash('message', ['label' => 'success', 'title' => 'Escolas - Cadastrar', 'description' => 'Operação realizada com sucesso!']);
 
@@ -70,12 +72,11 @@ class EscolasController extends Controller
         return view('sistema::escolas.edit', compact('escola'));
     }
 
-    public function update(Request $request)
+    public function update(EscolasAlterarRequest $request)
     {
         try
         {
-            dd($request->all());
-            // $this->escolasRepository->updateEscola($request->validated());
+            $this->escolasRepository->updateEscola($request->validated());
 
             session()->flash('message', ['label' => 'success', 'title' => 'Escolas - Alterar', 'description' => 'Operação realizada com sucesso!']);
 
@@ -88,4 +89,9 @@ class EscolasController extends Controller
             return redirect()->route('sistema.escolas.index');
         }
     }
+
+    public function servicos()
+    {
+        return view('sistema::escolas.servicos');
+    }   
 }

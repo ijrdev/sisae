@@ -37,7 +37,7 @@
                         @foreach($escolas as $escola)
                             <tr>
                                 <td class="text-center">{{ $escola->id_escola }}</td>    
-                                <td class="text-center">{{ date('d-m-Y', strtotime($escola->dt_cadastro)) }}</td>
+                                <td class="text-center">{{ $escola->dt_cadastro->format('d-m-Y') }}</td>
                                 <td class="text-center">{{ $escola->nome_escola }}</td>
                                 <td class="text-center">{{ $escola->email_escola }}</td>
 
@@ -54,6 +54,7 @@
                                 <td class="text-center">
                                     <div class="btn-group-xs">
                                         <a href="{{ route('sistema.escolas.edit', ['id' => $escola->id_escola]) }}" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Alterar"><i class="fa fa-pencil"></i></a>
+                                        <a href="{{ route('sistema.escolas.servicos', ['id' => $escola->id_escola]) }}" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Serviços"><i class="fa fa-cog"></i></a>
                                     </div>  
                                 </td>
                             </tr>

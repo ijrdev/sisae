@@ -16,7 +16,7 @@
     <div class="block">
         <div class="row">
             <div class="col-sm-12">
-                <form action="{{ route('sistema.funcionalidades.store') }}" method="post" class="form-horizontal form-bordered">
+                <form action="{{ route('sistema.funcionalidades.store') }}" id="sistema-funcionalidades-create" method="post" class="form-horizontal form-bordered">
                     @csrf
 
                     <div class="form-group">
@@ -61,9 +61,9 @@
                         </div>
                     </div>
 
-                    <div class="form-group form-actions">
+                    <div class="form-group form-actions" id="form-buttons">
                         <div class="col-lg-12 text-center">
-                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check"></i> Cadastrar</button>
+                            <button type="button" class="btn btn-sm btn-primary" onclick="formSubmitLoading('sistema-funcionalidades-create')"><i class="fa fa-check"></i> Cadastrar</button>
                         </div>
                     </div>
                 </form>

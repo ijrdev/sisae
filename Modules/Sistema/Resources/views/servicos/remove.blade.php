@@ -29,16 +29,16 @@
                         <strong>Label: </strong>{{ $servico->label_servico }}
                     </p>
 
-                    <form action="{{ route('sistema.servicos.delete') }}" method="post" class="form-horizontal form-bordered">
+                    <form action="{{ route('sistema.servicos.delete') }}" id="sistema-servicos-remove" method="post" class="form-horizontal form-bordered">
                         @method("DELETE")
                         @csrf
 
                         <input type="hidden" name="id_servico" class="form-control" value="{{ $servico->id_servico ?? old('id_servico') }}" required>
                         
-                        <div class="form-group form-actions">
+                        <div class="form-group form-actions" id="form-buttons">
                             <div class="col-lg-12 text-center">
                                 <a class="btn btn-sm btn-default" href="{{ route('sistema.servicos.index') }}"><i class="fa fa-reply"></i> Voltar</a>
-                                <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Excluir</button>
+                                <button type="button" class="btn btn-sm btn-danger" onclick="formSubmitLoading('sistema-servicos-remove')"><i class="fa fa-times"></i> Excluir</button>
                             </div>
                         </div>
                     </form>
