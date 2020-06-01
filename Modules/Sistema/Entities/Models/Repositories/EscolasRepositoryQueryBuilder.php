@@ -15,7 +15,7 @@ class EscolasRepositoryQueryBuilder
     {
         $servicos = $this->getAllServicos();
 
-        foreach($servicos as $id => $servico) 
+        foreach($servicos as $servico) 
         {
             $servico->funcionalidades = $this->getFuncionalidadesServico($servico->id_servico);
         }

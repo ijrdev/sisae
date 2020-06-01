@@ -104,6 +104,28 @@
                                         </li>
                                     </ul>
                                 </li>
+                                
+                                <li onclick="activeMenuLevelUtilitarios()" {{ explode('.', Route::current()->getName())[1]  == 'utilitarios' ? "class=active" : '' }}>
+                                    <a href="javascript:void(0)" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-cubes sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Utilitários</span></a>
+                                    
+                                    <ul id="utilitarios-menu">
+                                        <li {{ explode('.', Route::current()->getName())[2]  == 'templates-email' ? "class=active" : '' }}>
+                                            <a href="#" class="sidebar-nav-submenu"><i class="fa fa-angle-left sidebar-nav-indicator"></i>Templates de email</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="{{ route('sistema.utilitarios.templates-email.index') }}" {{ Route::current()->getName() == 'sistema.utilitarios.templates-email.index' ? "class=active" : '' }}>Templates</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('sistema.utilitarios.templates-email.create') }}" {{ Route::current()->getName() == 'sistema.utilitarios.templates-email.create' ? "class=active" : '' }}>Adicionar</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li {{ explode('.', Route::current()->getName())[2]  == 'gerador-arquivos' ? "class=active" : '' }}>
+                                            <a href="#" class="sidebar-nav-submenu"><i class="fa fa-angle-left sidebar-nav-indicator"></i>Gerador de arquivos</a>
+                                        </li>
+                                    </ul>
+                                </li>
 
                                 <li {{ explode('.', Route::current()->getName())[1]  == 'escolas' ? "class=active" : '' }}>
                                     <a href="javascript:void(0)" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-university sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Escolas</span></a>

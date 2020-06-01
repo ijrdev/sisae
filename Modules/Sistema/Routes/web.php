@@ -27,6 +27,12 @@ Route::name('sistema.funcionalidades.')->prefix('sisae/funcionalidades')->group(
     Route::delete('/excluir', 'FuncionalidadesController@delete')->name('delete');
 });
 
+/* TemplateEmailController. */
+Route::name('sistema.utilitarios.templates-email.')->prefix('sisae/utilitarios/templates-email')->group(function() {
+    Route::get('/', 'TemplatesEmailController@index')->name('index');
+    Route::get('/adicionar', 'TemplatesEmailController@create')->name('create');
+});
+
 /* EscolaController. */
 Route::name('sistema.escolas.')->prefix('sisae/escolas')->group(function() {
     Route::get('/', 'EscolasController@index')->name('index');

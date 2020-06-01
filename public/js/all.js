@@ -45,3 +45,9 @@ function formSubmitLoading(formName)
     
     $('#' + formName).submit();
 }
+
+// Menu Level.
+function activeMenuLevelUtilitarios()
+{
+    $('#utilitarios-menu').toggle();
+}
